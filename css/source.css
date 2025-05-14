@@ -1,0 +1,163 @@
+:root{
+    --dark-gray: #080808;
+    --dark-blue: #2547A0;
+    --bright-gray: #B4B4B4;
+
+    --color-background: var(--dark-gray);
+    --color-text-title: var(--dark-blue);
+    --color-text-desc: var(--bright-gray);
+    --main-font: 'Space Grotesk', sans-serif;
+    --sec-font: 'Raleway', sans-serif;
+}
+
+body {
+    background-color: var(--color-background);
+    padding: 0%;
+    margin: 5%;
+    margin-top: 0%;
+}
+
+#header {
+    padding: 10px;
+    background-color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.flexbox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.center {
+    justify-content: center;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+#logo {
+
+}
+
+p {
+    color: var(--color-text-title);
+    display: flex;
+    align-items: center;
+    font-family: var(--main-font);
+    font-size: 30px;
+    margin: 0px;
+}
+
+h1 {
+    color: var(--color-text-title);
+    display: flex;
+    align-items: center;
+    font-family: var(--main-font);
+    font-size: 30px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h2 {
+    color: var(--color-text-desc);
+    display: flex;
+    align-items: center;
+    font-family: var(--main-font);
+    font-size: 15px;
+    margin: 0px;
+}
+
+h3 {
+    color: var(--color-text-title);
+    display: flex;
+    align-items: center;
+    font-family: var(--sec-font);
+    font-size: 15px;
+    margin: 0px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+}
+
+.centered-text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* DIV CLASSES */
+
+div {
+    display: flexs;
+}
+
+.list-down {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* TEXT CLASSES */
+
+.blue {
+    color: var(--dark-blue);
+}
+
+.gray {
+    color: var(--bright-gray);
+}
+
+.default-text {
+    font-size: 15px;
+}
+
+.big-text {
+    font-size: 20px;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.big-title {
+    font-size: 50px;
+}
+
+.banner-text {
+    font-size: 75px;
+}
+
+.main-font {
+    font-family: var(--main-font);
+}
+
+.sec-font {
+    font-family: var(--sec-font);
+}
+
+.text-center {
+    text-align: center;
+}

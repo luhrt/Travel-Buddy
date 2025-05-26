@@ -1,0 +1,22 @@
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+}
+
+.banner__title {
+    position: absolute;
+    text-align: center;
+    margin: 0;
+    align-self: center;
+    color: #B4B4B4;
+    font-size: 85px;
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 175px;
+}
+
+.banner__image {
+    width: 100%;
+}

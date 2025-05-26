@@ -1,0 +1,28 @@
+@import url(banner.css);
+@import url(footer.css);
+@import url(form.css);
+@import url(header.css);
+@import url(welcome.css);
+
+body {
+    margin: 0;
+}
+
+/* Oculta a barra de rolagem para o Chrome, Safari e Edge. */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #080808;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+}

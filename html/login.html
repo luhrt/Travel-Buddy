@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem Vindo ao TravelBuddy</title>
+  <link rel="stylesheet" href="../css/index.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1 class="header__title">TravelBuddy</h1>
+      <img class="header__logo" src="../src/img/logo.png" alt="A logo do TravelBuddy, representada por um pin de localização azul, com um avião, também azul, voando ao redor dele.">
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li class="header__ul-item"><a class="header__link" href="roteiro.html">Roteiros</a></li>
+          <li class="header__ul-item"><a class="header__link" href="explorar.html">Explorar</a></li>
+          <li class="header__ul-item"><a class="header__link" href="login.html">Login</a></li>
+        </ul>
+    </header>
+
+    <main class="content">
+      <section class="banner">
+        <h2 class="banner__title">Descubra o mundo com a<br>gente</h2>
+        <img class="banner__image" src="../src/img/headerbackground1.png" alt="Um avião, visto de baixo, sobrevoando prédios, em um céu azul limpo.">
+      </section>
+
+      <section class="welcome">
+        <div class="welcome__container">
+          <h2 class="welcome__title">Bom te ver novamente!</h2>
+          <p class="welcome__text">Que bom ter você de volta! Faça login para continuar explorando destinos
+          incríveis e aproveitando tudo o que nossa comunidade tem a oferecer.</p>
+        </div>
+        <div class="form">
+          <h2 class="form__title">Faça Login</h2>
+          <form class="form__container" action="profile.html" method="post">
+            <input class="form__input" type="email" id="email" name="email" placeholder="Email" required>
+            <input class="form__input" type="password" id="senha" name="senha" placeholder="Senha" required>
+            <button class="form__button" type="submit">Entrar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <h3 class="footer__title">Novo por aqui? Cadastre-se agora!</h3>
+      <button class="footer__button" type="submit" onclick="window.location.href='cadastro.html'">Cadastrar-se</button>
+    </footer>
+  </div>
+</body>
+</html>
+      <!--
+      <header id="header">
+        <div class="flexbox left">
+          <h1 class="title">TravelBuddy</h1>
+        </div>
+        <div class="flexbox center">
+          <img src="../src/img/logo.png" width="60" height="auto" />
+        </div>
+        <div class="flexbox right">
+          <h3>Explorar</h3>
+          <h3>Login</h3>
+        </div>
+      </header>
+    
+      <div class="image-container">
+        <img src="../src/img/headerbackground1.png" width="100%" height="auto" />
+        <h2 class="centered-text banner-text" style="width: 75%">
+          Descubra o mundo com a gente
+        </h2>
+      </div>
+    
+      <div
+        class="center list-side"
+        style="background-color: rgba(0, 0, 0, 0); margin-top: 80px; width: 100%"
+      >
+        <div
+          class="left list-down fixed"
+          style="background-color: rgba(0, 0, 0, 0); margin: 0px; width: 50%; gap: 30px"
+        >
+          <h1 class="banner-text blue" style="width: 75%">Bom te ver novamente!</h1>
+          <h1 class="big-text gray" style="width: 75%">
+            Que bom ter você de volta! Faça login para continuar explorando destinos
+            incríveis e aproveitando tudo o que nossa comunidade tem a oferecer.
+          </h1>
+        </div>
+    
+        <div class="right login-form">
+          <h2 class="gray big-title">Faça Login</h2>
+          <form class="list-down" style="gap: 20px" id="login-form">
+            <input type="email" id="email" name="email" placeholder="Email" class="input-field" />
+            <input type="password" id="senha" name="password" placeholder="Senha" class="input-field" />
+            <button type="submit" class="button">Entrar</button>
+          </form>
+        </div>
+      </div>
+    
+      <div
+        class="center list-down"
+        style="background-color: rgba(0, 0, 0, 0); margin-top: 80px; align-items: center; gap: 20px"
+      >
+        <h1 class="title blue">Novo por aqui? Cadastre-se agora!</h1>
+        <button
+          type="submit"
+          class="center button"
+          style="padding-left: 50px; padding-right: 50px; width: 220px;"
+          id="Cadastrar-se"
+          onclick="window.location.href='cadastro.html'"
+        >
+          Cadastrar-se
+        </button>
+      </div>
+    
+      <script>
+        const form = document.querySelector("#login-form");
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+    
+          const email = document.querySelector("#email").value;
+          const password = document.querySelector("#senha").value;
+    
+          const res = await fetch("http://localhost:3001/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+    
+          const data = await res.json();
+          if (data.success) {
+            alert("Login bem-sucedido!");
+            window.location.href = "/login";
+          } else {
+            alert("Usuário ou senha inválidos.");
+          }
+        });
+      </script>
+      -->

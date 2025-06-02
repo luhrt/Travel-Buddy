@@ -5,6 +5,11 @@
 @import url(css/welcome.css);
 @import url(css/admin.css);
 @import url(css/cadastro.css);
+@import url(css/destino.css);
+@import url(css/info.css);
+@import url(css/location.css);
+@import url(css/post.css);
+
 
 body {
     margin: 0;

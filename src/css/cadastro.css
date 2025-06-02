@@ -1,0 +1,32 @@
+.cadastro {
+    width: 100%;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    display: flex;
+    gap: 5%;
+}
+
+.cadastro__container {
+    width: 45%;
+}
+
+.cadastro__title {
+    width: 100%;
+}
+
+.cadastro__text {
+    width: 88%;
+    padding-bottom: 5%;
+}
+
+.cadastro__image {
+    width: 50%;
+}
+
+.cadastro__form-container {
+    width: 30vw;
+}
+
+.cadastro__form-title {
+    width: 26vw;
+}

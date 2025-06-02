@@ -1,0 +1,39 @@
+@import url(css/banner.css);
+@import url(css/footer.css);
+@import url(css/form.css);
+@import url(css/header.css);
+@import url(css/welcome.css);
+@import url(css/admin.css);
+@import url(css/cadastro.css);
+@import url(css/destino.css);
+@import url(css/info.css);
+@import url(css/location.css);
+@import url(css/post.css);
+
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #080808;  
+}
+
+/* Oculta a barra de rolagem para o Chrome, Safari e Edge. */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #080808;  
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+}

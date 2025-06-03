@@ -8,6 +8,11 @@ Funcionalidades planejadas:
     - Sistema de login básico.
     - Integrar banco de dados com Express.
 
+Pré-requisitos:
+    - Node.js
+    - Angular
+    - MySQL / MariaDB
+
 Para rodar o código:
     - Abra o terminal no diretório do frontend
     - Escreva ng build

@@ -9,6 +9,8 @@ Funcionalidades planejadas:
     - Integrar banco de dados com Express.
 
 Para rodar o código:
+    - Abra o terminal no diretório do frontend
+    - Escreva ng build
     - Abra o terminal no diretório do backend
     - Escreva npm start
     - Aguarde a mensagem "Servidor rodando na porta 3000"

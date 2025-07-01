@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar Admin</title>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+</head>
+<body>
+    <div class="page">
+        <%- include('partials/header') %>
+        <main class="content">
+            <section class="admin">
+                <img class="admin__image" src="/images/imagem_admin.png" alt="">
+                <div class="form admin__form">
+                    <h1 class="form__title admin__form-title">Faça Login</h1>
+                    <form class="form__container admin__form-container" action="#" method="post">
+                        <input class="form__input admin__form-input" type="email" id="email" name="email" placeholder="Email" required>
+                        <input class="form__input admin__form-input" type="password" id="senha" name="senha" placeholder="Senha" required>        
+                        <button class="form__button" type="submit">Entrar</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

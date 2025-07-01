@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem Vindo ao TravelBuddy</title>
+  <link rel="stylesheet" href="/stylesheets/index.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="page">
+    <%- include('partials/header') %>
+    <main class="content">
+      <section class="banner">  
+        <h2 class="banner__title">Descubra o mundo com a<br>gente</h2>
+        <img class="banner__image" src="/images/headerbackground1.png" alt="Um avião, visto de baixo, sobrevoando prédios, em um céu azul limpo.">
+      </section>
+
+      <section class="welcome" id="login">
+        <div class="welcome__container">
+          <h2 class="welcome__title" id="teste">Bom te ver novamente!</h2>
+          <p class="welcome__text">Que bom ter você de volta! Faça login para continuar explorando destinos
+          incríveis e aproveitando tudo o que nossa comunidade tem a oferecer.</p>
+        </div>
+        <div class="form">
+          <h2 class="form__title">Faça Login</h2>
+          <form class="form__container" action="profile.html" method="post">
+            <input class="form__input" type="email" id="email" name="email" placeholder="Email" required>
+            <input class="form__input" type="password" id="senha" name="senha" placeholder="Senha" required>
+            <button class="form__button" type="submit">Entrar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <h3 class="footer__title">Novo por aqui? Cadastre-se agora!</h3>
+      <a class="footer__button" type="submit" href="/cadastro">Cadastrar-se</a>
+    </footer>
+  </div>
+</body>
+</html>

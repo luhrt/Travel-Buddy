@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    padding-top: 1%;
+}
+
+.header__title {
+    width: 20%;
+    color: #2547A0;
+    font-size: 39px;
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+}
+
+.header__logo {
+    width: 74px;
+    justify-self: center;
+}
+
+.header__nav {
+    width: 22%;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding-right: 15px;
+}
+
+.header__ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.header__ul-item {
+}
+
+.header__link {
+    color: #2547A0;
+    text-decoration: none;
+}

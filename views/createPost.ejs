@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Postagem</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body>
+    <div class="page">
+        <%- include('partials/header') %>
+
+    <main class="content">
+      <section class="post-form">
+        <form class="post-form__container" action="profile.html" method="post">
+          <input class="form__input" type="text" name="post_title" id="post_title" required>
+          <button class="form__button" type="submit">Publicar</button>
+          <input class="form__input post-form__input" type="text" name="post_text" id="post_text" required>
+        </form>
+      </section>
+      <section class="add-image">
+        <div class="add-image__button">
+          <p class="add-image__text">Adicionar Imagem</p>
+          <img class="add-image__image" src="/images/add-image.png" alt="Um botão em formato de cruz">
+        </div>
+        <div class="add-image__preview">
+          <div class="add-image__container">
+            <img class="add-image__slots" src="/images/post_image.png">
+          </div>
+          <div class="add-image__container">
+            <img class="add-image__slots" src="/images/post_image.png" style="opacity: 0;">
+          </div>
+          <div class="add-image__container">
+            <img class="add-image__slots" src="/images/post_image.png" style="opacity: 0;">
+          </div>
+        </div>
+      </section>
+    </main>
+    </div>
+</body>
+</html>

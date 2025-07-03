@@ -14,8 +14,11 @@ router.post('/cadastrar',async (req, res) => {
         console.log(email, nome, senha);
         const [result] = await global.conexao.query('INSERT INTO user (user_email, user_name, user_password) VALUES (?, ?, ?)', [email, nome, senha]);
 
-        const userId = result.insertId;
-        res.redirect(`/profile/${userId}`);
+        global.user_Id = result.insertId;
+        global.user_name = nome
+        global.user_email = email
+        
+        res.redirect(`/profile/${user_Id}`);
     } catch(err) {
         console.error(err);
         res.status(500).send("Erro ao cadastrar destino.");

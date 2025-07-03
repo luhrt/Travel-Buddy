@@ -17,7 +17,7 @@ var roteiroRouter = require('./routes/roteiro');
 var manageRouter = require('./routes/manage');
 
 var app = express();
-require('./db');
+global.banco = require('./db');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

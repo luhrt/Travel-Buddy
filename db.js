@@ -20,8 +20,17 @@ async function ConectarBD() {
     return global.conexao;
 }
 
+async function buscarUsuario(user) {
+    const conexao = await ConectarBD();
+    const sql = "select * from user where user_email=? and user_password=?;";
+    const [userResult] = await conexao.query(sql,[user.email, user.senha]);
+    return userResult && userResult.length>0 ? userResult[0] : {};
+}
+
 // Funções aqui
 
 ConectarBD();
 
-module.exports = {}
+module.exports = {
+    buscarUsuario
+}

@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,6 +19,17 @@ var manageRouter = require('./routes/manage');
 
 var app = express();
 global.banco = require('./db');
+
+app.use(session({
+  secret: 'segredo-super-seguro',
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use((req, res, next) => {
+  res.locals.user_id = req.session.user_id || null;
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

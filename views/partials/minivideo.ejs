@@ -1,0 +1,14 @@
+<div class="video__container">
+  <img class="video__image" src="<%= video.video_thumbnail %>" alt="">
+  <img class="video__profile" src="<%= user.user_pfp %>" alt="">
+  <p class="video__title"><%= video.video_title %></p>
+  <div class="location">
+      <img class="location__pin" src="/images/pin.png" alt="">
+      <p class="location__text"><%= pais.country_name %></p>
+  </div>
+  <div class="info">
+      <p class="info__author"><%= user.user_name %></p>
+      <p class="info__stats"><%= video.video_views %> pessoas seguindo esta viagem</p>
+      <p class="info__follow-button"><a href="#" style="color:#2547A0; font-weight:bold;">+Seguir</a></p>
+  </div>
+</div>

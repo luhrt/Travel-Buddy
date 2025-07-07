@@ -4,15 +4,17 @@
 .profile__banner {
     width: 100vw;
     max-height: 220px;
+    max-width: 100%;
     object-fit: cover;
 }
 .profile__pic {
-    padding-left: 5vw;
+    margin-left: 5vw;
     margin-top: -12vh;
     width: 140px;
     height: 140px;
     position: relative;
     z-index: 2;
+    border-radius: 50%;
 }
 .profile__name {
     font-size: 2rem;

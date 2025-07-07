@@ -168,8 +168,9 @@ CREATE TABLE `user` (
   `user_name` varchar(50) NOT NULL,
   `user_email` varchar(100) NOT NULL,
   `user_password` varchar(255) NOT NULL,
-  `user_desc` text DEFAULT NULL,
+  `user_desc` text DEFAULT 'Olá! Sou novo no TravelBuddy!',
   `user_pfp` varchar(255) DEFAULT NULL,
+  `user_banner` varchar(255) DEFAULT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT 0,
   `country_id` int(11) DEFAULT NULL,
   `user_postcount` int(11) NOT NULL DEFAULT 0
@@ -195,6 +196,7 @@ CREATE TABLE `video` (
   `user_id` int(11) NOT NULL,
   `travel_id` int(11) DEFAULT NULL,
   `country_id` int(11) NOT NULL,
+  `video_views` int(20) NOT NULL,
   `video_title` varchar(255) NOT NULL,
   `video_desc` text DEFAULT NULL,
   `video_url` varchar(255) NOT NULL,

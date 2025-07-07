@@ -7,6 +7,11 @@
 @import url(cadastro.css);
 @import url(add-image.css);
 @import url(explore.css);
+@import url(profile.css);
+@import url(post.css);
+@import url(video.css);
+@import url(info.css);
+@import url(location.css);
 
 body {
     margin: 0;

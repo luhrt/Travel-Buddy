@@ -9,116 +9,66 @@
 <body>
     <div class="page">
         <%- include('partials/header') %>
+        <main class="content">
+            <section class="profile">
+                <img class="profile__banner" src="/images/profilebanner.png" alt="">
+                <img class="profile__pic" src="/images/profilepic.png" alt="">
+                <h2 class="profile__name">Pierre Baguette</h2>
+                <div class="location">
+                    <img class="location__pin" src="/images/pin.png" alt="">
+                    <p class="location__text">Paris, França</p>
+                    <img class="location__flag" src="/images/logo.png" alt="">
+                </div>
+                <p class="profile__bio">
+                    Bonjour!<br>
+                    Eu sou Pierre, um francês apaixonado por viagens, culturas e boas histórias.<br>
+                    Aqui, compartilho minhas experiências pelo mundo com dicas e curiosidades.<br>
+                    Vem explorar o mundo comigo! 🌎✈️
+                </p>
+                <div class="info">
+                    <p class="info__stats">56,7 Mil seguidores</p>
+                    <p class="info__follow-button"><a href="#" style="color:#2547A0; font-weight:bold;">+Seguir</a></p>
+                </div>
+            </section>
 
-  <main class="content">
-     <section class="profile">
-        <img class="profile__banner" src="" alt="">
-        <img class="profile__pic" src="" alt="">
-        <h1 class="profile__name"></h1>
-        <div class="location">
-                <img class="location__pin" src="" alt="">
-                <p class="location__text"></p>
-                <img class="location__flag" src="" alt="">
-        </div>
-        <p class="profile__bio"></p>
-        <div class="info">
-                <p class="info__stats"></p>
-                <p class="info__follow-button"></p>
-        </div>
-     </section>
+            <section class="video">
+                <% for(let i=0; i<4; i++) { %>
+                <div class="video__container">
+                    <img class="video__image" src="/images/video_image.png" alt="">
+                    <img class="video__profile" src="/images/profilepic.png" alt="">
+                    <p class="video__title">BONJOUR! 🇫🇷 Comendo baguette e queijo em PARIS!</p>
+                    <div class="location">
+                        <img class="location__pin" src="/images/pin.png" alt="">
+                        <p class="location__text">Paris, França 🇫🇷</p>
+                    </div>
+                    <div class="info">
+                        <p class="info__author">Pierre Baguette</p>
+                        <p class="info__stats">72 Mil pessoas seguindo esta viagem</p>
+                        <p class="info__follow-button"><a href="#" style="color:#2547A0; font-weight:bold;">+Seguir</a></p>
+                    </div>
+                </div>
+                <% } %>
+            </section>
 
-    <section class="video">
-       <div class="video__container">
-          <img class="video__image" src="" alt="">
-          <img class="video__profile" src="" alt="">
-          <p class="video__title"></p>
-          <div class="location">
-             <img class="location__pin" src="" alt="">
-             <p class="location__text"></p>
-          </div>
-          <div class="info">
-             <p class="info__author"></p>
-             <p class="info__stats"></p>
-             <p class="info__follow-button"></p>
-          </div>
-       </div>
-       <div class="video__container">
-          <img class="video__image" src="" alt="">
-          <img class="video__profile" src="" alt="">
-          <p class="video__title"></p>
-          <div class="location">
-             <img class="location__pin" src="" alt="">
-             <p class="location__text"></p>
-          </div>
-          <div class="info">
-             <p class="info__author"></p>
-             <p class="info__stats"></p>
-             <p class="info__follow-button"></p>
-          </div>
-       </div>
-       <div class="video__container">
-          <img class="video__image" src="" alt="">
-          <img class="video__profile" src="" alt="">
-          <p class="video__title"></p>
-          <div class="location">
-             <img class="location__pin" src="" alt="">
-             <p class="location__text"></p>
-          </div>
-          <div class="info">
-             <p class="info__author"></p>
-             <p class="info__stats"></p>
-             <p class="info__follow-button"></p>
-          </div>
-       </div>
-       <div class="video__container">
-          <img class="video__image" src="" alt="">
-          <img class="video__profile" src="" alt="">
-          <p class="video__title"></p>
-          <div class="location">
-             <img class="location__pin" src="" alt="">
-             <p class="location__text"></p>
-          </div>
-          <div class="info">
-             <p class="info__author"></p>
-             <p class="info__stats"></p>
-             <p class="info__follow-button"></p>
-          </div>
-       </div>
-       <div class="video__container">
-          <img class="video__image" src="" alt="">
-          <img class="video__profile" src="" alt="">
-          <p class="video__title"></p>
-          <div class="location">
-             <img class="location__pin" src="" alt="">
-             <p class="location__text"></p>
-          </div>
-          <div class="info">
-             <p class="info__author"></p>
-             <p class="info__stats"></p>
-             <p class="info__follow-button"></p>
-          </div>
-       </div>
-     </section>
-
-     <section class="post">
-        <div class="post__container">
-            <img class="post__image" src="" alt="">
-            <div class="post__container">
-                <h3 class="post__title"></h3>
-                <p class="post__text"></p>
-            </div>
-            <img class="post__like-button" src="" alt="">
-        </div>
-        <div class="post__container">
-            <img class="post__image" src="" alt="">
-            <div class="post__container">
-                <h3 class="post__title"></h3>
-                <p class="post__text"></p>
-            </div>
-            <img class="post__like-button" src="" alt="">
-        </div>
-    </section>
-  </main>
-  </div>
+            <section class="post">
+                <% for(let i=0; i<2; i++) { %>
+                <div class="post__container" style="display:flex; background:#181818; border-radius:12px; margin-bottom:20px; padding:20px;">
+                    <img class="post__image" src="/images/post_image.png" alt="" style="width:320px; height:220px; border-radius:10px; object-fit:cover;">
+                    <div class="post__container" style="margin-left:32px;">
+                        <h3 class="post__title" style="font-size:2rem; color:#fff;">Título do Post</h3>
+                        <p class="post__text" style="color:#b4b4b4;">
+                            A França é um lugar maravilhoso!<br><br>
+                            Em minha recente ida à França, pude me deslumbrar com suas belíssimas arquiteturas e sua cultura incrível!!!<br><br>
+                            Às vezes sinto falta de andar por essas belas ruas de meu país natal. Sempre que assisto ao filme do Corcunda de Notre Dame (meu filme preferido), me bate uma saudade de casa.<br><br>
+                            Fora as baguettes, que são sensacionais e deliciosas. O vinho e o queijo então, nem se fala!<br><br>
+                            Oui Oui! 🥖🍷
+                        </p>
+                    </div>
+                    <img class="post__like-button" src="/images/like_empty.png" alt="" style="width:32px; height:32px; margin-left:auto;">
+                </div>
+                <% } %>
+            </section>
+        </main>
+    </div>
 </body>
 </html>

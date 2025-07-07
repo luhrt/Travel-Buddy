@@ -1,0 +1,30 @@
+.profile {
+    padding-top: 1%;
+}
+.profile__banner {
+    width: 100vw;
+    max-height: 220px;
+    object-fit: cover;
+}
+.profile__pic {
+    padding-left: 5vw;
+    margin-top: -12vh;
+    width: 140px;
+    height: 140px;
+    position: relative;
+    z-index: 2;
+}
+.profile__name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5vw;
+    margin-top: 10px;
+    color: #fff;
+}
+.profile__bio {
+    margin-left: 5vw;
+    margin-top: 10px;
+    color: #b4b4b4;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}

@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
             seguindo = await global.banco.estaSeguindo(logadoId, user.user_id);
         }
 
-        res.render('profile', {user, pais, videos, posts, seguidores, seguindo});
+        res.render('profile', {user, pais, videos, posts, seguidores, seguindo, session: req.session,});
     } catch(err) {
         return res.status(500).send('Usuário não encontrado');
     }

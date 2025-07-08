@@ -1,5 +1,39 @@
-<% if(seguindo) {%>
-    <p class="info__follow-button"><a href="#" style="color:#919191; font-weight:bold;">Seguindo</a></p>
-<% } else { %>
-    <p class="info__follow-button"><a href="#" style="color:#2547A0; font-weight:bold;">+Seguir</a></p>
-<% } %>
+<button id="follow-toggle" style="background:none; border:none; color:<%= seguindo ? '#7d7d7d' : '#2547A0' %>; font-weight:bold; cursor:pointer;">
+  <%= seguindo ? 'Seguindo' : '+Seguir' %>
+</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('follow-toggle');
+    if (!toggleBtn) return;
+
+    toggleBtn.addEventListener('click', async () => {
+      const action = toggleBtn.textContent.trim() === '+Seguir' ? 'follow' : 'unfollow';
+      const followed_id = Number("<%= user.user_id %>");
+      
+      try {
+        const response = await fetch(`/${action}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ followed_id })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          if (action === 'follow') {
+            toggleBtn.textContent = 'Seguindo';
+            toggleBtn.style.color = '#7d7d7d';
+          } else {
+            toggleBtn.textContent = '+Seguir';
+            toggleBtn.style.color = '#2547A0';
+          }
+        } else {
+          alert(data.message || 'Erro ao atualizar follow.');
+        }
+      } catch(err) {
+        console.error('Erro na requisição:', err);
+      }
+    })
+  });
+</script>

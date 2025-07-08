@@ -24,7 +24,7 @@
                 <div class="info">
                     <p class="info__stats"><%= seguidores.length || 0 %> seguidores</p>
                     <% if(user.user_id !== user_id) { %>
-                        <%- include('partials/seguir',seguindo) %>
+                        <%- include('partials/seguir',{seguindo}) %>
                     <% } %>
                 </div>
             </section>

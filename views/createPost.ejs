@@ -5,37 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Postagem</title>
     <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/form.css">
+    <link rel="stylesheet" href="/stylesheets/add-image.css">
 </head>
 <body>
     <div class="page">
         <%- include('partials/header') %>
-
-    <main class="content">
-      <section class="post-form">
-        <form class="post-form__container" action="profile.html" method="post">
-          <input class="form__input" type="text" name="post_title" id="post_title" required>
-          <button class="form__button" type="submit">Publicar</button>
-          <input class="form__input post-form__input" type="text" name="post_text" id="post_text" required>
-        </form>
-      </section>
-      <section class="add-image">
-        <div class="add-image__button">
-          <p class="add-image__text">Adicionar Imagem</p>
-          <img class="add-image__image" src="/images/add-image.png" alt="Um botão em formato de cruz">
-        </div>
-        <div class="add-image__preview">
-          <div class="add-image__container">
-            <img class="add-image__slots" src="/images/post_image.png">
-          </div>
-          <div class="add-image__container">
-            <img class="add-image__slots" src="/images/post_image.png" style="opacity: 0;">
-          </div>
-          <div class="add-image__container">
-            <img class="add-image__slots" src="/images/post_image.png" style="opacity: 0;">
-          </div>
-        </div>
-      </section>
-    </main>
+        <main class="content">
+            <form class="post-form" action="/createPost" method="post" enctype="multipart/form-data">
+                <div class="post-form__row">
+                    <input class="post-form__input" type="text" name="post_title" id="post_title" placeholder="Título" required>
+                    <button class="post-form__button" type="submit">Publicar</button>
+                </div>
+                <textarea class="post-form__textarea" name="post_text" id="post_text" placeholder="Texto" required></textarea>
+                <div class="add-image__area">
+                    <label class="add-image__main" id="addImageLabel">
+                        <span class="add-image__label">Adicionar Imagem</span>
+                        <span class="add-image__plus">+</span>
+                        <input type="file" id="post_image" name="post_image" accept="image/*">
+                    </label>
+                    <div class="add-image__thumbs">
+                        <img class="add-image__thumb" id="imagePreview" src="/images/post_image.png" alt="Preview">
+                        <div class="add-image__thumb add-image__thumb--empty"></div>
+                        <div class="add-image__thumb add-image__thumb--empty"></div>
+                    </div>
+                </div>
+            </form>
+        </main>
     </div>
+    <script>
+      document.getElementById('post_image').onchange = function(evt) {
+        const [file] = evt.target.files;
+        if (file) {
+          document.getElementById('imagePreview').src = URL.createObjectURL(file);
+        }
+      };
+    </script>
 </body>
 </html>

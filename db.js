@@ -79,14 +79,77 @@ async function estaSeguindo(followerId, followedId) {
     return rows.length > 0;
 }
 
+async function buscarVideosPopulares(limit, offset) {
+    const conexao = await ConectarBD();
+    const sql = `
+        SELECT v.*, u.user_name, u.user_pfp, c.country_name
+        FROM video v
+        JOIN user u ON v.user_id = u.user_id
+        JOIN country c ON v.country_id = c.country_id
+        ORDER BY v.video_id DESC
+        LIMIT ? OFFSET ?;
+    `;
+    const [videos] = await conexao.query(sql, [limit, offset]);
+    return videos;
+}
+
+async function buscarPostsPopulares(limit, offset) {
+    const conexao = await ConectarBD();
+    const sql = `
+        SELECT p.*, u.user_name, u.user_pfp, c.country_name
+        FROM post p
+        JOIN user u ON p.user_id = u.user_id
+        JOIN country c ON p.country_id = c.country_id
+        ORDER BY p.post_id DESC
+        LIMIT ? OFFSET ?;
+    `;
+    const [posts] = await conexao.query(sql, [limit, offset]);
+    return posts;
+}
+
+async function buscarVideosPorTitulo(q, limit, offset) {
+    const conexao = await ConectarBD();
+    const sql = `
+        SELECT v.*, u.user_name, u.user_pfp, c.country_name
+        FROM video v
+        JOIN user u ON v.user_id = u.user_id
+        JOIN country c ON v.country_id = c.country_id
+        WHERE v.video_title LIKE ?
+        ORDER BY v.video_id DESC
+        LIMIT ? OFFSET ?;
+    `;
+    const [videos] = await conexao.query(sql, [`%${q}%`, limit, offset]);
+    return videos;
+}
+
+async function buscarPostsPorTitulo(q, limit, offset) {
+    const conexao = await ConectarBD();
+    const sql = `
+        SELECT p.*, u.user_name, u.user_pfp, c.country_name
+        FROM post p
+        JOIN user u ON p.user_id = u.user_id
+        JOIN country c ON p.country_id = c.country_id
+        WHERE p.post_name LIKE ?
+        ORDER BY p.post_id DESC
+        LIMIT ? OFFSET ?;
+    `;
+    const [posts] = await conexao.query(sql, [`%${q}%`, limit, offset]);
+    return posts;
+}
+
 ConectarBD();
 
 module.exports = {
+    ConectarBD,
     buscarUsuario,
     buscarUsuarioPorId,
     buscarPaisPorId,
     buscarVideosDeUsuario,
     buscarPostsDeUsuario,
     buscarSeguidores,
-    estaSeguindo
+    estaSeguindo,
+    buscarVideosPopulares,
+    buscarPostsPopulares,
+    buscarVideosPorTitulo,
+    buscarPostsPorTitulo
 }

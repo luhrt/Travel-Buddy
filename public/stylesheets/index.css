@@ -17,6 +17,10 @@ body {
     margin: 0;
 }
 
+body * {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 /* Oculta a barra de rolagem para o Chrome, Safari e Edge. */
 body::-webkit-scrollbar {
     display: none;

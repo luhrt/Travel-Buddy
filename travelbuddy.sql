@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/07/2025 às 13:23
+-- Tempo de geração: 08/07/2025 às 04:45
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -55,7 +55,7 @@ CREATE TABLE `comment` (
   `video_id` int(11) DEFAULT NULL,
   `comment_text` text NOT NULL,
   `comment_date` timestamp NOT NULL DEFAULT current_timestamp()
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -105,6 +105,16 @@ CREATE TABLE `post` (
   `post_image` varchar(255) DEFAULT NULL,
   `post_tags` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `post`
+--
+
+INSERT INTO `post` (`post_id`, `user_id`, `country_id`, `post_date`, `post_name`, `post_desc`, `post_image`, `post_tags`) VALUES
+(1, 1, 2, '2025-07-08 02:43:21', 'Dicas de Paris', 'Descubra cantinhos escondidos e charmosos da cidade luz.', '/images/post_image.png', 'paris,dicas,viagem'),
+(2, 1, 2, '2025-07-08 02:43:21', 'A melhor baguette', 'Experimentei baguettes de todos os bairros. Veja minhas favoritas!', '/images/post_image.png', 'comida,baguette,fran?a'),
+(3, 1, 2, '2025-07-08 02:43:21', 'Passeio pelo Sena', 'Reflex?es sobre um fim de tarde navegando no Sena.', '/images/post_image.png', 'rio sena,cruzeiro,rom?ntico'),
+(4, 1, 2, '2025-07-08 02:43:21', 'Arte nas ruas', 'Grafites, performances e arte urbana em Montmartre.', '/images/post_image.png', 'arte,rua,montmartre');
 
 --
 -- Acionadores `post`
@@ -180,10 +190,8 @@ CREATE TABLE `user` (
 -- Despejando dados para a tabela `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_desc`, `user_pfp`, `admin`, `country_id`, `user_postcount`) VALUES
-(1, 'Pierre Baguette', 'pierre@gmail.com', NULL, 'http://127.0.0.1:5500/frontend/src/img/profilepic.png', 0, 2, 0),
-(2, 'Andre Schultz', 'andre@gmail.com', NULL, NULL, 1, 1, 0),
-(3, 'Lucas Nunes', 'lucas@gmail.com', NULL, NULL, 1, 1, 0);
+INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_desc`, `user_pfp`, `user_banner`, `admin`, `country_id`, `user_postcount`) VALUES
+(1, 'Pierre Baguette', 'pierre@gmail.com', '123', 'Bonjour! Eu sou Pierre, um franc?s apaixonado por viagens, culturas e boas hist?rias. Aqui compartilho minhas experi?ncias pelo mundo com dicas e curiosidades.', '/images/profilepic.png', 'images/profilebanner.png', 0, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -203,6 +211,20 @@ CREATE TABLE `video` (
   `video_thumbnail` varchar(255) DEFAULT NULL,
   `video_tags` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `video`
+--
+
+INSERT INTO `video` (`video_id`, `user_id`, `travel_id`, `country_id`, `video_views`, `video_title`, `video_desc`, `video_url`, `video_thumbnail`, `video_tags`) VALUES
+(1, 1, NULL, 2, 1500, 'Passeando pelo Louvre', 'Visitando o famoso museu.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'arte,paris,louvre'),
+(2, 1, NULL, 2, 2000, 'Tour pela Torre Eiffel', 'Uma vista incr?vel da cidade.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'torre eiffel,paris,viagem'),
+(3, 1, NULL, 2, 1000, 'Comendo baguette em Paris', 'Um tour gastron?mico pela Fran?a.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'comida,fran?a,baguette'),
+(4, 1, NULL, 2, 800, 'Conhecendo Montmartre', 'Bairro art?stico de Paris.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'montmartre,arte,fran?a'),
+(5, 1, NULL, 2, 1200, 'Passeio pelo Sena', 'Cruzeiro pelo rio Sena.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'rio sena,paris,cruzeiro'),
+(6, 1, NULL, 2, 500, 'Caf?s de Paris', 'Melhores caf?s para visitar.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'caf?s,paris,gastronomia'),
+(7, 1, NULL, 2, 900, 'Mercados franceses', 'Visitando mercados locais.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'mercado,fran?a,comida'),
+(8, 1, NULL, 2, 1100, 'Noite em Paris', 'Explorando a vida noturna.', 'https://www.youtube.com/watch?v=wgNPCKuX9ds', '/images/video_image.png', 'noite,paris,festa');
 
 --
 -- Índices para tabelas despejadas
@@ -303,7 +325,7 @@ ALTER TABLE `follow`
 -- AUTO_INCREMENT de tabela `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `rate`
@@ -321,13 +343,13 @@ ALTER TABLE `travel`
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `video`
 --
 ALTER TABLE `video`
-  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restrições para tabelas despejadas

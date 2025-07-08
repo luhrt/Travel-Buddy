@@ -9,14 +9,14 @@ router.get('/', function(req, res, next) {
   res.render('index', {});
 });
 
-router.post('/login',async function(req, res, next){
+router.post('/login', async function(req, res, next){
   if(!req.session.user_id) {
     const email = req.body.email;
     const senha = req.body.senha;
 
     const result = await global.banco.buscarUsuario({email,senha});
 
-    if(result.user_id){
+    if(result && result.user_id){
       req.session.user_id = result.user_id;
       global.user_name = result.user_name;
       global.user_email = result.user_email;
@@ -50,7 +50,7 @@ router.post('/follow', async (req, res) => {
     const followed_id = req.body.followed_id;
     const follower_id = req.session.user_id;
     
-    if (!follower_id) { return res.status(401).json({ message: 'Usuário não autenticado.' }); }
+    if (!followed_id) { return res.status(401).json({ message: 'Usuário não autenticado.' }); }
     if (!follower_id) { return res.status(400).json({ message: 'Faça login para seguir outros usuários.' }); }
 
     if (follower_id === followed_id) {

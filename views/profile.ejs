@@ -13,23 +13,24 @@
             <section class="profile">
                 <img class="profile__banner" src="<%= user.user_banner || '/images/bnr.png' %>" alt="">
                 <img class="profile__pic" src="<%= user.user_pfp || '/images/pfp.png' %>" alt="">
-                <h2 class="profile__name"><%= user.user_name || '???' %></h2>
-                <div class="location">
-                    <img class="location__flag" src="/images/logo.png" alt="">
-                    <p class="location__text"><%= pais.country_name || '???' %></p>
+                <div class="profile__mainframe">
+                    <div class="profile__info">
+                        <h2 class="profile__name"><%= user.user_name || '???' %></h2>
+                        <p class="profile__bio">
+                            <%= user.user_desc || 'Olá! Sou novo no TravelBuddy!' %>
+                        </p>
+                    </div>
+                    <div class="profile__stats">
+                        <p class="info__stats"><%= seguidores.length || 0 %> seguidores</p>
+                        <% if(user.user_id !== user_id) { %>
+                            <%- include('partials/seguir',{seguindo}) %>
+                        <% } %>
+                    </div>
                 </div>
-                <p class="profile__bio">
-                    <%= user.desc || 'Olá! Sou novo no TravelBuddy!' %>
-                </p>
-                <div class="info">
-                    <p class="info__stats"><%= seguidores.length || 0 %> seguidores</p>
-                    <% if(user.user_id !== user_id) { %>
-                        <%- include('partials/seguir',{seguindo}) %>
-                    <% } %>
-                </div>
+                
             </section>
 
-            <section class="video">
+            <section class="destino__grid">
                 <% videos.forEach(video =>  { %>
                     <%- include('partials/minivideo', {video}) %>
                 <% }) %>

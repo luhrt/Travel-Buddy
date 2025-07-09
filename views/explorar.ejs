@@ -17,41 +17,21 @@
                 <button type="submit">🔍</button>
             </form>
 
-            <section class="destino">
-                <h2 class="header__title">Destinos Populares</h2>
+            <div class="destino">
+                <h2 class="explore-title">Destinos Populares</h2>
                 <div class="destino__grid" id="videos-list">
                     <% videos.forEach(function(video) { %>
-                        <div class="destino__container">
-                            <img class="destino__image" src="<%= video.video_thumbnail || '/images/video_image.png' %>" alt="">
-                            <img class="destino__profile" src="<%= video.user_pfp || '/images/profilepic.png' %>" alt="">
-                            <p class="destino__title"><%= video.video_title %></p>
-                            <div class="location">
-                                <img class="location__pin" src="/images/pin.png" alt="">
-                                <p class="location__text"><%= video.country_name %></p>
-                            </div>
-                            <div class="info">
-                                <p class="info__author"><%= video.user_name %></p>
-                                <p class="info__stats">72 Mil pessoas seguindo essa viagem</p>
-                                <p class="info__follow-button"><a href="#">+Seguir</a></p>
-                            </div>
-                        </div>
+                        <%- include('partials/minivideo', {video}) %>
                     <% }) %>
                 </div>
                 <h4 class="show-more" id="show-more-videos" style="cursor:pointer;">Mostrar Mais</h4>
-            </section>
+            </div>
 
             <section class="post">
-                <h2 class="header__title">Relatos de Viagens</h2>
+                <h2 class="explore-title">Relatos de Viagens</h2>
                 <div id="posts-list">
                     <% posts.forEach(function(post) { %>
-                        <div class="post__container">
-                            <img class="post__image" src="<%= post.post_image || '/images/post_image.png' %>" alt="">
-                            <div class="post__content">
-                                <h3 class="post__title"><%= post.post_name %></h3>
-                                <p class="post__text"><%= post.post_desc %></p>
-                            </div>
-                            <img class="post__like-button" src="/images/like_empty.png" alt="">
-                        </div>
+                        <%- include('partials/post', {post}) %>
                     <% }) %>
                 </div>
                 <h4 class="show-more" id="show-more-posts" style="cursor:pointer;">Mostrar Mais</h4>

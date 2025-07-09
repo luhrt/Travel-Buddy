@@ -17,6 +17,7 @@ async function ConectarBD() {
     console.log("Conexão iniciada com o MySQL!")
 
     global.conexao = conexao;
+    // conexao.query(";");
     return global.conexao;
 }
 

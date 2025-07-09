@@ -1,14 +1,8 @@
-<div class="post__container" style="display:flex; background:#181818; border-radius:12px; margin-bottom:20px; padding:20px;">
-  <img class="post__image" src="/images/post_image.png" alt="" style="width:320px; height:220px; border-radius:10px; object-fit:cover;">
-  <div class="post__container" style="margin-left:32px;">
-      <h3 class="post__title" style="font-size:2rem; color:#fff;">Título do Post</h3>
-      <p class="post__text" style="color:#b4b4b4;">
-          A França é um lugar maravilhoso!<br><br>
-          Em minha recente ida à França, pude me deslumbrar com suas belíssimas arquiteturas e sua cultura incrível!!!<br><br>
-          Às vezes sinto falta de andar por essas belas ruas de meu país natal. Sempre que assisto ao filme do Corcunda de Notre Dame (meu filme preferido), me bate uma saudade de casa.<br><br>
-          Fora as baguettes, que são sensacionais e deliciosas. O vinho e o queijo então, nem se fala!<br><br>
-          Oui Oui! 🥖🍷
-      </p>
+<div class="post__container">
+  <img class="post__image" src="<%= post.post_image || '/images/post_image.png' %>" alt="">
+  <div class="post__content">
+      <h3 class="post__title"><%= post.post_name %></h3>
+      <p class="post__text"><%= post.post_desc %></p>
   </div>
-  <img class="post__like-button" src="/images/like_empty.png" alt="" style="width:32px; height:32px; margin-left:auto;">
+  <img class="post__like-button" src="/images/like_empty.png" alt="">
 </div>

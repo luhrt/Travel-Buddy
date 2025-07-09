@@ -1,13 +1,17 @@
 .info {
     display: flex;
-    align-items: center;
-    margin-left: 5vw;
-    margin-top: 10px;
+    justify-content: left;
+    padding-top: 7px;
+    flex-direction: column;
 }
+
+.info * {
+    margin: 0;
+    font-size: 0.7rem;
+}
+
 .info__stats {
     color: #b4b4b4;
-    font-size: 1.1rem;
-    margin-right: 24px;
 }
 .info__follow-button a {
     color: #2547A0;
@@ -16,11 +20,9 @@
 }
 .info__author {
     color: #b4b4b4;
-    font-size: 1rem;
 }
 .info__stats {
     color: #b4b4b4;
-    font-size: 0.95rem;
 }
 .info__follow-button {
     margin-top: 4px;

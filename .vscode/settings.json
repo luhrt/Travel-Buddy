@@ -1,0 +1,25 @@
+{
+    "sqltools.connections": [
+      {
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 3306,
+        "driver": "MariaDB",
+        "name": "teste",
+        "database": "travelbuddy",
+        "username": "root",
+        "password": ""
+      },
+      {
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 3306,
+        "driver": "MariaDB",
+        "name": "test",
+        "database": "travelbuddy",
+        "username": "lucas",
+        "password": ""
+      }
+    ]
+  }
+  

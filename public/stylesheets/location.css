@@ -1,18 +1,16 @@
 .location {
     display: flex;
     align-items: center;
-    margin-left: 5vw;
-    margin-top: 5px;
+    height: 10px;
+    padding-top: 3px;
 }
 .location__pin {
-    width: 18px;
-    height: 18px;
+    height: 15px;
     margin-right: 6px;
 }
 .location__text {
     color: #b4b4b4;
-    font-size: 1rem;
-    margin-right: 8px;
+    font-size: 0.8rem;
 }
 .location__flag {
     width: 22px;

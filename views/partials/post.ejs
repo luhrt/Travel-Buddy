@@ -6,3 +6,16 @@
   </div>
   <img class="post__like-button" src="/images/like_empty.png" alt="">
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const likeBtn = document.querySelector('.post__like-button');
+    if (!likeBtn) return;
+    likeBtn.addEventListener('click', () => {
+      if (likeBtn.src.includes('like_empty.png')) {
+        likeBtn.src = '/images/like_filled.png';
+      } else {
+        likeBtn.src = '/images/like_empty.png';
+      }
+    });
+  });
+</script>

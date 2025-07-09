@@ -47,7 +47,7 @@ app.use('/cadastro', cadastroRouter);
 app.use('/loginAdmin', loginAdminRouter);
 app.use('/explorar', explorarRouter);
 app.use('/profile', profileRouter);
-app.use('/assistir', videoRouter);
+app.use('/video', videoRouter);
 app.use('/country', countryRouter);
 app.use('/createPost', createPostRouter);
 app.use('/createRoteiro', createVideoRouter);

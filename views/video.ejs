@@ -1,68 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistir</title>
-    <link rel="stylesheet" href="/stylesheets/index.css">
-    <link rel="icon" href="/images/logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= titulo %></title>
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #141414;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .video-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      background-color: #000;
+    }
+    .video-info {
+      margin-top: 20px;
+    }
+    .video-info h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .video-info p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .back-button {
+      position: absolute;
+      left: 1%;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      background-color: #e50914;
+      border-radius: 4px;
+    }
+    .back-button:hover {
+      background-color: #b10811;
+    }
+  </style>
 </head>
 <body>
-  <div class="page">
-    <%- include('partials/header') %>
-
-    <main class="content layout">
-      <!-- Vídeo principal -->
-      <section class="main-video">
-        <iframe class="main-video__iframe" src="https://www.youtube.com/embed/E4WlUXrJgy4?si=ZtzK0aE5RZV_pr8S" allowfullscreen></iframe>
-        <h1 class="main-video__title">BONJOUR! 🇫🇷 Comendo baguette e queijo em PARIS!</h1>
-
-        <div class="main-video__location">
-          <img src="/images/pin.png" alt="">
-          <p>Paris, França</p>
-          <span>Ep. 9</span>
-        </div>
-
-        <div class="main-video__author">
-          <img src="/images/profilepic.png" alt="" class="author__pic">
-          <div>
-            <p class="author__name">Pierre Baguette</p>
-            <p class="author__followers">56,7 mil seguidores</p>
-            <button class="author__follow">+Seguir</button>
-          </div>
-        </div>
-
-        <div class="comments">
-          <form class="comments__form">
-            <input type="text" placeholder="Adicione um comentário...">
-            <button>Comentar</button>
-          </form>
-          <div class="comments__list">
-            <div class="comment">
-              <img src="/images/emoji1.png" alt="">
-              <p>Adorei o vídeo! Vou começar a planejar minha viagem pra Paris já</p>
+  <div class="video-container">
+      <a href="/explorar" class="back-button">Voltar</a>
+    <video controls poster="<%= video.video_thumbnail %>">
+      <source src="<%= video.video_url %>" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+    <div class="video-info">
+      <h1><%= video.video_title %></h1>
+      <p><%= video.video_desc %></p>
+      <p><strong>Autor:</strong> <%= video.user_name %></p>
+      <p><strong>Localização:</strong> <%= video.country_name %></p>
+      <p><strong>Visualizações:</strong> <%= video.video_views %></p>
+    </div>
+    <div class="video-comments">
+      <form action="/video/<%= video.video_id %>/comentar" method="POST" style="display:flex; gap:10px; margin-top:30px;">
+        <input name="comentario" type="text" placeholder="Comente algo..." style="flex:1; padding:10px; border-radius:6px; border:none;">
+        <button type="submit" style="background:#2946b6; color:#fff; border:none; border-radius:6px; padding:0 20px;">Comentar</button>
+      </form>
+      <div style="margin-top:18px; display:flex; flex-direction:column; gap:12px;">
+        <% if (comentarios && comentarios.length > 0) { %>
+          <% comentarios.forEach(function(comentario) { %>
+            <div style="display:flex;align-items:flex-start;gap:12px;background:#181818;border-radius:8px;padding:12px 16px;">
+              <img src="<%= comentario.user_pfp || '/images/pfp.png' %>" alt="" style="width:38px;height:38px;border-radius:50%;object-fit:cover;">
+              <div>
+                <span style="font-weight:600;color:#fff;"><%= comentario.user_name %></span><br>
+                <span style="color:#eee;font-size:1rem;"> <%= comentario.comment_text %> </span>
+              </div>
             </div>
-            <div class="comment">
-              <img src="/images/emoji2.png" alt="">
-              <p>Paris nem é tudo isso. Acho que deveriam parar de ficar babando pra essa cidade tão ruim!</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Vídeos relacionados -->
-      <aside class="sidebar">
-        <% videos.forEach(video => { %>
-          <div class="sidebar__video">
-            <img src="<%= video.video_thumbnail %>" class="sidebar__thumb" alt="">
-            <div class="sidebar__info">
-              <p class="sidebar__title"><%= video.video_title %></p>
-              <p class="sidebar__location"> <%= video.country_name %> </p>
-            </div>
-          </div>
-        <% }) %>
-      </aside>
-    </main>
+          <% }); %>
+        <% } else { %>
+          <span style="color:#aaa;">Nenhum comentário ainda.</span>
+        <% } %>
+      </div>
+    </div>
+    <div class="video-suggestions" style="margin-top:40px;">
+      <h2 style="color:#fff;font-size:1.2rem;margin-bottom:12px;">Sugestões</h2>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <% if (sugestoes && sugestoes.length > 0) { %>
+          <% sugestoes.forEach(function(sug) { %>
+            <a href="/video/<%= sug.video_id %>" style="text-decoration:none;color:inherit;">
+              <div style="display:flex;gap:10px;align-items:center;background:#181818;border-radius:8px;overflow:hidden;">
+                <img src="<%= sug.video_thumbnail || '/images/video_image.png' %>" alt="" style="width:70px;height:50px;object-fit:cover;">
+                <div style="flex:1;">
+                  <div style="font-weight:600;font-size:1rem;color:#fff;line-height:1.2;"><%= sug.video_title %></div>
+                  <div style="font-size:0.95rem;color:#aaa;"><%= sug.user_name %></div>
+                </div>
+              </div>
+            </a>
+          <% }); %>
+        <% } else { %>
+          <span style="color:#aaa;">Nenhuma sugestão disponível.</span>
+        <% } %>
+      </div>
+    </div>
   </div>
 </body>
 </html>

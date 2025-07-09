@@ -17,7 +17,7 @@ router.get('/:id', async (req, res) => {
         const videos = await global.banco.buscarVideosDeUsuario(user);
         const posts = await global.banco.buscarPostsDeUsuario(user);
         const seguidores = await global.banco.buscarSeguidores(user.user_id);
-        
+        console.log(videos)
         let seguindo = false;
         if (logadoId && logadoId !== user.user_id) {
             seguindo = await global.banco.estaSeguindo(logadoId, user.user_id);

@@ -3,115 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assistir</title>
     <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="icon" href="/images/logo.png" type="image/png">
 </head>
 <body>
-    <div class="page">
-        <%- include('partials/header') %>
+  <div class="page">
+    <%- include('partials/header') %>
 
-    <main class="content">
-        <div class="displayer">
-            <iframe class="displayer__iframe" width="560" height="315" src="https://www.youtube.com/embed/E4WlUXrJgy4?si=ZtzK0aE5RZV_pr8S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <h1 class="displayer__title"></h1>
-            <div class="location">
-                <img class="location__pin" src="" alt="">
-                <p class="location__text"></p>
-                <img class="location__flag" src="" alt="">
-            </div>
-            <img class="displayer__like-button" src="" alt="">
+    <main class="content layout">
+      <!-- Vídeo principal -->
+      <section class="main-video">
+        <iframe class="main-video__iframe" src="https://www.youtube.com/embed/E4WlUXrJgy4?si=ZtzK0aE5RZV_pr8S" allowfullscreen></iframe>
+        <h1 class="main-video__title">BONJOUR! 🇫🇷 Comendo baguette e queijo em PARIS!</h1>
+
+        <div class="main-video__location">
+          <img src="/images/pin.png" alt="">
+          <p>Paris, França</p>
+          <span>Ep. 9</span>
         </div>
-        <div class="info">
-            <img class="info__pic" src="" alt="">
-            <p class="info__author"></p>
-            <p class="info__stats"></p>
-            <p class="info__follow-button"></p>
+
+        <div class="main-video__author">
+          <img src="/images/profilepic.png" alt="" class="author__pic">
+          <div>
+            <p class="author__name">Pierre Baguette</p>
+            <p class="author__followers">56,7 mil seguidores</p>
+            <button class="author__follow">+Seguir</button>
+          </div>
         </div>
+
         <div class="comments">
-            <form class="comments__form" action="#">
-                <input class="comments__input" type="text" name="" id="">
-                <button class="comments__button"></button>
-            </form>
-            <div class="comments__commentary">
-                <img class="comments__commentary-pic" src="" alt="">
-                <div class="comments__commentary-box">
-                    <p class="comments__commentary-text"></p>
-                </div>
+          <form class="comments__form">
+            <input type="text" placeholder="Adicione um comentário...">
+            <button>Comentar</button>
+          </form>
+          <div class="comments__list">
+            <div class="comment">
+              <img src="/images/emoji1.png" alt="">
+              <p>Adorei o vídeo! Vou começar a planejar minha viagem pra Paris já</p>
             </div>
+            <div class="comment">
+              <img src="/images/emoji2.png" alt="">
+              <p>Paris nem é tudo isso. Acho que deveriam parar de ficar babando pra essa cidade tão ruim!</p>
+            </div>
+          </div>
         </div>
-        <aside class="video">
-            <div class="video__container">
-                <img class="video__image" src="" alt="">
-                <img class="video__profile" src="" alt="">
-                <p class="video__title"></p>
-                <div class="location">
-                    <img class="location__pin" src="" alt="">
-                    <p class="location__text"></p>
-                </div>
-                <div class="info">
-                    <p class="info__author"></p>
-                    <p class="info__stats"></p>
-                    <p class="info__follow-button"></p>
-                </div>
+      </section>
+
+      <!-- Vídeos relacionados -->
+      <aside class="sidebar">
+        <% videos.forEach(video => { %>
+          <div class="sidebar__video">
+            <img src="<%= video.video_thumbnail %>" class="sidebar__thumb" alt="">
+            <div class="sidebar__info">
+              <p class="sidebar__title"><%= video.video_title %></p>
+              <p class="sidebar__location"> <%= video.country_name %> </p>
             </div>
-            <div class="video__container">
-                <img class="video__image" src="" alt="">
-                <img class="video__profile" src="" alt="">
-                <p class="video__title"></p>
-                <div class="location">
-                    <img class="location__pin" src="" alt="">
-                    <p class="location__text"></p>
-                </div>
-                <div class="info">
-                    <p class="info__author"></p>
-                    <p class="info__stats"></p>
-                    <p class="info__follow-button"></p>
-                </div>
-            </div>
-            <div class="video__container">
-                <img class="video__image" src="" alt="">
-                <img class="video__profile" src="" alt="">
-                <p class="video__title"></p>
-                <div class="location">
-                    <img class="location__pin" src="" alt="">
-                    <p class="location__text"></p>
-                </div>
-                <div class="info">
-                    <p class="info__author"></p>
-                    <p class="info__stats"></p>
-                    <p class="info__follow-button"></p>
-                </div>
-            </div>
-            <div class="video__container">
-                <img class="video__image" src="" alt="">
-                <img class="video__profile" src="" alt="">
-                <p class="video__title"></p>
-                <div class="location">
-                    <img class="location__pin" src="" alt="">
-                    <p class="location__text"></p>
-                </div>
-                <div class="info">
-                    <p class="info__author"></p>
-                    <p class="info__stats"></p>
-                    <p class="info__follow-button"></p>
-                </div>
-            </div>
-            <div class="video__container">
-                <img class="video__image" src="" alt="">
-                <img class="video__profile" src="" alt="">
-                <p class="video__title"></p>
-                <div class="location">
-                    <img class="location__pin" src="" alt="">
-                    <p class="location__text"></p>
-                </div>
-                <div class="info">
-                    <p class="info__author"></p>
-                    <p class="info__stats"></p>
-                    <p class="info__follow-button"></p>
-                </div>
-            </div>
-        </aside>
+          </div>
+        <% }) %>
+      </aside>
     </main>
-    </div>
+  </div>
 </body>
 </html>

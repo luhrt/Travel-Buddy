@@ -88,3 +88,46 @@
     margin: 18px 0 0 0;
     cursor: pointer;
 }
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 25px;
+  }
+  
+  .blue-button {
+    background-color: #2547A0;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: inherit;
+    transition: background 0.2s;
+    font-size: 20px;
+    text-align: center;
+    gap: 30px;
+    width: 200px;
+    justify-content:space-between;
+  }
+  
+  .blue-button:hover {
+    background-color: #1e3b8a;
+  }
+
+  .info__author {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .info__author:hover {
+    text-decoration: underline;
+  }
+
+  .destino__container a {
+    text-decoration: none;
+    color: inherit;
+  }
+  

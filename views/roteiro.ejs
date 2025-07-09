@@ -3,123 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roteiro</title>
+    <title>Criar</title>
     <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="icon" href="/images/logo.png" type="image/png">
 </head>
 <body>
     <div class="page">
         <%- include('partials/header') %>
     <main class="content">
-        <section>
-            <button>
-                <a href="/createRoteiro">Criar Roteiro</a>
-            </button>
-            <button>
-                <a href="/createPost">Criar Post</a>
-            </button>
-        </section>
+        <section class="button-container">
+            <!-- <a class="blue-button" href="/createVideo">Criar Vídeo</a> -->
+            <a class="blue-button" href="/createPost">Criar Roteiro</a>
+          </section>
 
-        <section class="video">
-            <h2 class="video__maintitle">Favoritos</h2>
-                <div class="video__container">
-                    <img class="video__image" src="" alt="">
-                    <img class="video__profile" src="" alt="">
-                    <p class="video__title"></p>
-                    <div class="location">
-                        <img class="location__pin" src="" alt="">
-                        <p class="location__text"></p>
-                    </div>
-                    <div class="info">
-                        <p class="info__author"></p>
-                        <p class="info__stats"></p>
-                        <p class="info__follow-button"></p>
-                    </div>
-                </div>
-                <div class="video__container">
-                    <img class="video__image" src="" alt="">
-                    <img class="video__profile" src="" alt="">
-                    <p class="video__title"></p>
-                    <div class="location">
-                        <img class="location__pin" src="" alt="">
-                        <p class="location__text"></p>
-                    </div>
-                    <div class="info">
-                        <p class="info__author"></p>
-                        <p class="info__stats"></p>
-                        <p class="info__follow-button"></p>
-                    </div>
-                </div>
-                <div class="video__container">
-                    <img class="video__image" src="" alt="">
-                    <img class="video__profile" src="" alt="">
-                    <p class="video__title"></p>
-                    <div class="location">
-                        <img class="location__pin" src="" alt="">
-                        <p class="location__text"></p>
-                    </div>
-                    <div class="info">
-                        <p class="info__author"></p>
-                        <p class="info__stats"></p>
-                        <p class="info__follow-button"></p>
-                    </div>
-                </div>
-                <div class="video__container">
-                    <img class="video__image" src="" alt="">
-                    <img class="video__profile" src="" alt="">
-                    <p class="video__title"></p>
-                    <div class="location">
-                        <img class="location__pin" src="" alt="">
-                        <p class="location__text"></p>
-                    </div>
-                    <div class="info">
-                        <p class="info__author"></p>
-                        <p class="info__stats"></p>
-                        <p class="info__follow-button"></p>
-                    </div>
-                </div>
-                <div class="video__container">
-                    <img class="video__image" src="" alt="">
-                    <img class="video__profile" src="" alt="">
-                    <p class="video__title"></p>
-                    <div class="location">
-                        <img class="location__pin" src="" alt="">
-                        <p class="location__text"></p>
-                    </div>
-                    <div class="info">
-                        <p class="info__author"></p>
-                        <p class="info__stats"></p>
-                        <p class="info__follow-button"></p>
-                    </div>
-                </div>
-        </section>
+        
 
-        <section class="post">
-            <div class="post__container">
-                <div class="post__container">
-                    <h3 class="post__title"></h3>
-                    <p class="post__text"></p>
-                </div>
-                <img class="post__like-button" src="" alt="">
+        <div class="destino">
+            <h2 class="explore-title">Seus vídeos</h2>
+            <div class="destino__grid" id="videos-list">
+                <% videos.forEach(function(video) { %>
+                    <%- include('partials/minivideo', {video}) %>
+                <% }) %>
             </div>
-            <div class="post__container">
-                <div class="post__container">
-                    <h3 class="post__title"></h3>
-                    <p class="post__text"></p>
-                </div>
-                <img class="post__like-button" src="" alt="">
-            </div>
-        </section>
+        </div>
 
-        <section class="following">
-            <h2 class="following__title">Seguindo</h2>
-            <div class="following__container">
-                <img class="following__image" src="" alt="">
-                <img class="following__image" src="" alt="">
-                <img class="following__image" src="" alt="">
-                <img class="following__image" src="" alt="">
-                <img class="following__image" src="" alt="">
-            </div>
-        </section>
+        <h2 class="explore-title">Seus roteiros</h2>
+        <div id="posts-list" class="posts-list">
+            <% posts.forEach(function(post) { %>
+                <%- include('partials/post', {post}) %>
+            <% }) %>
+        </div>
     </main>
     </div>
 </body>

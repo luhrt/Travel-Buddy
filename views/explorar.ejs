@@ -6,6 +6,7 @@
     <title>TravelBuddy</title>
     <link rel="stylesheet" href="/stylesheets/index.css"/>
     <link rel="stylesheet" href="/stylesheets/explore.css"/>
+    <link rel="icon" href="/images/logo.png" type="image/png">
 </head>
 <body>
     <div class="page">
@@ -28,8 +29,8 @@
             </div>
 
             <section class="post">
-                <h2 class="explore-title">Relatos de Viagens</h2>
-                <div id="posts-list">
+                <h2 class="explore-title">Roteiros de Viagens</h2>
+                <div id="posts-list" class="posts-list">
                     <% posts.forEach(function(post) { %>
                         <%- include('partials/post', {post}) %>
                     <% }) %>

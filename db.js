@@ -17,7 +17,7 @@ async function ConectarBD() {
     console.log("Conexão iniciada com o MySQL!")
 
     global.conexao = conexao;
-    // conexao.query(";");
+    // const a =  conexao.query("select country_name;");
     return global.conexao;
 }
 
@@ -25,7 +25,14 @@ async function buscarUsuarioPorId(UserId) {
     const conexao = await ConectarBD();
     const sql = "select * from user where user_id=?;";
     const [userResult] = await conexao.query(sql,[UserId]);
-    return userResult && userResult.length>0 ? userResult[0] : {};
+    return userResult && userResult.length>0 ? userResult[0] : null;
+}
+
+async function buscarVideoPorId(VideoId) {
+    const conexao = await ConectarBD();
+    const sql = "select * from video where video_id=?;";
+    const [videoResult] = await conexao.query(sql,[VideoId]);
+    return videoResult && videoResult.length>0 ? videoResult[0] : null;
 }
 
 async function buscarUsuario(user) {
@@ -46,6 +53,10 @@ async function buscarVideosDeUsuario(user) {
     const conexao = await ConectarBD();
     const sql = "select * from video where user_id=?;";
     const [videoResult] = await conexao.query(sql,[user.user_id]);
+    for (const video of videoResult) {
+        const country = await buscarPaisPorId(video.country_id);
+        video.country_name = country.country_name;
+      }
     return videoResult;
 }
 
@@ -144,6 +155,7 @@ module.exports = {
     ConectarBD,
     buscarUsuario,
     buscarUsuarioPorId,
+    buscarVideoPorId,
     buscarPaisPorId,
     buscarVideosDeUsuario,
     buscarPostsDeUsuario,
@@ -152,5 +164,5 @@ module.exports = {
     buscarVideosPopulares,
     buscarPostsPopulares,
     buscarVideosPorTitulo,
-    buscarPostsPorTitulo
+    buscarPostsPorTitulo,
 }

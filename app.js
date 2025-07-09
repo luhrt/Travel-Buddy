@@ -13,7 +13,7 @@ var profileRouter = require('./routes/profile');
 var videoRouter = require('./routes/video');
 var countryRouter = require('./routes/country');
 var createPostRouter = require('./routes/createPost');
-var createRoteiroRouter = require('./routes/createRoteiro');
+var createVideoRouter = require('./routes/createVideo');
 var roteiroRouter = require('./routes/roteiro');
 var manageRouter = require('./routes/manage');
 
@@ -47,10 +47,10 @@ app.use('/cadastro', cadastroRouter);
 app.use('/loginAdmin', loginAdminRouter);
 app.use('/explorar', explorarRouter);
 app.use('/profile', profileRouter);
-app.use('/video', videoRouter);
+app.use('/assistir', videoRouter);
 app.use('/country', countryRouter);
 app.use('/createPost', createPostRouter);
-app.use('/createRoteiro', createRoteiroRouter);
+app.use('/createRoteiro', createVideoRouter);
 app.use('/roteiro', roteiroRouter);
 app.use('/manage', manageRouter);
 

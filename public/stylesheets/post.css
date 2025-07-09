@@ -53,10 +53,15 @@
     margin-top: 40px;
     box-shadow: 0 4px 32px #0003;
 }
+
 .post-form__title {
     color: #fff;
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 12px;
     text-align: center;
+}
+
+.posts-list {
+    width: 100%;
 }
